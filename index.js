@@ -36,10 +36,11 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
+function sayGoodbye(name) {
   /* code here */
+  return 'Goodbye, ' + name + '. Have a great day'
 }
-
+console.log(sayGoodbye('Robert'));
 /**
  * ### Challenge `temperatureCtoF`
  * 
@@ -54,9 +55,14 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
+function temperatureCtoF(tempInC) {
   /* code here */
+  tempInF = tempInC * 9 / 5 + 32
+
+ return Math.round(tempInF)
 }
+
+console.log(temperatureCtoF(24))
 
 /**
  * ### Challenge `temperatureInF`
@@ -75,10 +81,19 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
+function temperatureInF(temp, unit) {
   /* code here */
+  if(unit === 'C') {
+    const cel = Math.round((temp * 9) / 5 + 32)
+
+    return cel + 'C'
+  }else{
+    return temp + unit
+  }
+
 }
 
+console.log(temperatureInF(88, 'F'))
 
 /**
  * ### Challenge `makePersonObject`
@@ -96,9 +111,13 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
+function makePersonObject(id, name, email) {
   /* code here */
+  const person = {personId: id, personName: name, personEmail: email};
+
+  return person 
 }
+console.log(makePersonObject(5, 'Landon', 'landoncuff@gmail.com'))
 
 /**
  * ### Challenge `getName`
@@ -113,10 +132,14 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+function getName(prop) {
   /* code here */
-}
+  const person = {personID: prop.id, personName: prop.name, personEmail: prop.email}
 
+  return 'Hello, my name is ' + person["personName"]
+
+}
+console.log(getName({id: 6, name:'Robert', email:'robertlandoncuff@gmail.com'}))
 
 /**
  * ### Challenge `appleIndex`
